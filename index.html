@@ -120,19 +120,43 @@
     </div>
 
     <script>
-        function submitPoll() {
-            const checkboxes = document.querySelectorAll('input[name="fandoms"]:checked');
-            const selected = Array.from(checkboxes).map(cb => cb.value);
-            const resultsDiv = document.getElementById("results");
-            const selectedFandoms = document.getElementById("selectedFandoms");
+    // Initialize vote counts for each option
+    const voteCounts = {
+        "Star Wars: The Last Jedi (2017)": 0,
+        "Game of Thrones Season 8 Finale (2019)": 0,
+        "Sonic the Hedgehog (2020)": 0,
+        "The Last of Us Part II (2020)": 0,
+        "Ghostbusters (2016)": 0,
+        "She-Hulk: Attorney at Law (2022)": 0,
+        "The Witcher Season 2 (2021)": 0,
+        "Cyberpunk 2077 (2020)": 0,
+    };
 
-            if (selected.length > 0) {
-                selectedFandoms.innerHTML = "You selected: <ul>" + selected.map(item => `<li>${item}</li>`).join('') + "</ul>";
-            } else {
-                selectedFandoms.innerHTML = "You did not select any options.";
+    function submitPoll() {
+        const checkboxes = document.querySelectorAll('input[name="fandoms"]:checked');
+        const selected = Array.from(checkboxes).map(cb => cb.value);
+        const resultsDiv = document.getElementById("results");
+        const selectedFandoms = document.getElementById("selectedFandoms");
+
+        if (selected.length > 0) {
+            // Update vote counts for selected options
+            selected.forEach(option => voteCounts[option]++);
+
+            // Display selected options
+            selectedFandoms.innerHTML = "You selected: <ul>" + selected.map(item => `<li>${item}</li>`).join('') + "</ul>";
+
+            // Display updated vote counts
+            selectedFandoms.innerHTML += "<h3>Current Vote Counts:</h3><ul>";
+            for (const [option, count] of Object.entries(voteCounts)) {
+                selectedFandoms.innerHTML += `<li>${option}: ${count} votes</li>`;
             }
-            resultsDiv.style.display = "block";
+            selectedFandoms.innerHTML += "</ul>";
+        } else {
+            selectedFandoms.innerHTML = "You did not select any options.";
         }
-    </script>
+        resultsDiv.style.display = "block";
+    }
+</script>
+
 </body>
 </html>
