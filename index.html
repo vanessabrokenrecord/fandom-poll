@@ -37,13 +37,19 @@
             border-left: 4px solid #3498db;
             background-color: #eef6fc;
         }
+        .explanation img {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <!-- Page 1: Selection -->
     <div id="selectionPage">
-        <h1>Fandom Backlash Poll</h1>
-        <p>Choose all the fandom backlashes you recall:</p>
+        <h1>Fandom Backlash</h1>
+        <p>Click an example to lear more:</p>
         <form id="backlashForm">
             <div class="backlash-options">
                 <label><input type="checkbox" name="backlash" value="Star Wars"> Star Wars: The Last Jedi - Film (2017)</label>
@@ -69,14 +75,46 @@
     <script>
         // Explanations for each backlash
         const explanations = {
-            "Star Wars": "Faced intense criticism from a segment of fans displeased with its narrative choices, leading to online harassment of cast members like Kelly Marie Tran.",
-            "Game of Thrones": "The series' concluding episodes were met with widespread dissatisfaction, prompting petitions, including one with over a million signatures for a remake.",
-            "Sonic": "The initial character design in the film's trailer in 2019 sparked such a strong negative reaction that the studio delayed the release to redesign Sonic.",
-            "Last of Us": "The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.",
-            "Ghostbusters": "The reboot faced significant backlash from fans who criticized the film for its all-female cast, resulting in sexist and racist online harassment.",
-            "She-Hulk": "Faced backlash primarily from fans who criticized the show for its tone, visual effects, and perceived focus on female-driven storylines.",
-            "Witcher": "Faced backlash from fans who were disappointed with the deviations from the source material, particularly Henry Cavill’s exit due to rumored creative differences.",
-            "Cyberpunk": "Faced backlash primarily from fans who were disappointed by its numerous bugs, performance issues, and perceived lack of depth."
+            "Star Wars": `
+                <strong>Star Wars: The Last Jedi - Film (2017)</strong>
+                <p>Faced intense criticism from a segment of fans displeased with its narrative choices, leading to online harassment of cast members like Kelly Marie Tran.</p>
+                <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/starwars.jpeg?raw=true" alt="Star Wars: The Last Jedi">
+            `,
+            "Game of Thrones": `
+                <strong>Game of Thrones Season 8 Finale - TV (2019)</strong>
+                <p>The series' concluding episodes were met with widespread dissatisfaction, prompting petitions, including one with over a million signatures for a remake.</p>
+                <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/Larson-GoTFinale.webp" alt="Game of Thrones Season 8 Finale">
+            `,
+            "Sonic": `
+                <strong>Sonic the Hedgehog - Film (2020)</strong>
+                <p>The initial character design in the film's trailer in 2019 sparked such a strong negative reaction that the studio delayed the release to redesign Sonic.</p>
+                <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/sonic.jpeg?raw=true" alt="Sonic the Hedgehog">
+            `,
+            "Last of Us": `
+                <strong>The Last of Us Part II - Video Game (2020)</strong>
+                <p>The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.</p>
+                <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/9uSwzPhp9Zkfc7tzCtCpqR-1200-80.jpg?raw=true" alt="The Last of Us Part II">
+            `,
+            "Ghostbusters": `
+                <strong>Ghostbusters - Film (2016)</strong>
+                <p>The reboot faced significant backlash from fans who criticized the film for its all-female cast, resulting in sexist and racist online harassment.</p>
+                <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/ghostbusters-23016.jpg?raw=true" alt="Ghostbusters">
+            `,
+            "She-Hulk": `
+                <strong>She-Hulk: Attorney at Law - TV (2022)</strong>
+                <p>Faced backlash primarily from fans who criticized the show for its tone, visual effects, and perceived focus on female-driven storylines.</p>
+                <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/she-hulk-button-02-1658627893728.jpg?raw=true" alt="She-Hulk">
+            `,
+            "Witcher": `
+                <strong>The Witcher Season 2 - TV (2021)</strong>
+                <p>Faced backlash from fans who were disappointed with the deviations from the source material, particularly Henry Cavill’s exit due to rumored creative differences.</p>
+                <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/the-witcher-season-2-henry-cavill-1608215077.webp" alt="The Witcher Season 2">
+            `,
+            "Cyberpunk": `
+                <strong>Cyberpunk 2077 - Video Game (2020)</strong>
+                <p>Faced backlash primarily from fans who were disappointed by its numerous bugs, performance issues, and perceived lack of depth.</p>
+                <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/Cyberpunk-2077-Featured-1024x597.png?raw=true" alt="Cyberpunk 2077">
+            `
         };
 
         // Show explanations based on selections
@@ -86,10 +124,7 @@
 
             explanationDiv.innerHTML = ""; // Clear previous content
             selectedOptions.forEach(option => {
-                const explanation = document.createElement('div');
-                explanation.className = "explanation";
-                explanation.innerHTML = `<strong>${option.parentElement.textContent.trim()}</strong><br>${explanations[option.value]}`;
-                explanationDiv.appendChild(explanation);
+                explanationDiv.innerHTML += explanations[option.value];
             });
 
             // Switch to explanation page
