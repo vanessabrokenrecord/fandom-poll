@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fandom Backlash Awareness Poll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 20px;
+        }
+        h1 {
+            color: #444;
+            text-align: center;
+        }
+        .poll-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .poll-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .poll-option input {
+            margin-right: 10px;
+        }
+        .poll-option label {
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9f7df;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="poll-container">
+        <h1>Fandom Backlash Awareness Poll</h1>
+        <p>Select all the fandom backlashes you were aware of:</p>
+        <form id="fandomPoll">
+            <div class="poll-option">
+                <input type="checkbox" id="starWars" name="fandoms" value="Star Wars: The Last Jedi (2017)">
+                <label for="starWars">Star Wars: The Last Jedi - Film (2017)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="gameOfThrones" name="fandoms" value="Game of Thrones Season 8 Finale (2019)">
+                <label for="gameOfThrones">Game of Thrones Season 8 Finale - TV (2019)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="sonic" name="fandoms" value="Sonic the Hedgehog (2020)">
+                <label for="sonic">Sonic the Hedgehog - Film (2020)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="lastOfUs" name="fandoms" value="The Last of Us Part II (2020)">
+                <label for="lastOfUs">The Last of Us Part II - Video Game (2020)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="ghostbusters" name="fandoms" value="Ghostbusters (2016)">
+                <label for="ghostbusters">Ghostbusters - Film (2016)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="sheHulk" name="fandoms" value="She-Hulk: Attorney at Law (2022)">
+                <label for="sheHulk">She-Hulk: Attorney at Law - TV (2022)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="witcher" name="fandoms" value="The Witcher Season 2 (2021)">
+                <label for="witcher">The Witcher Season 2 - TV (2021)</label>
+            </div>
+            <div class="poll-option">
+                <input type="checkbox" id="cyberpunk" name="fandoms" value="Cyberpunk 2077 (2020)">
+                <label for="cyberpunk">Cyberpunk 2077 - Video Game (2020)</label>
+            </div>
+            <button type="button" onclick="submitPoll()">Submit</button>
+        </form>
+        <div class="results" id="results">
+            <h2>Results:</h2>
+            <p id="selectedFandoms"></p>
+        </div>
+    </div>
+
+    <script>
+        function submitPoll() {
+            const checkboxes = document.querySelectorAll('input[name="fandoms"]:checked');
+            const selected = Array.from(checkboxes).map(cb => cb.value);
+            const resultsDiv = document.getElementById("results");
+            const selectedFandoms = document.getElementById("selectedFandoms");
+
+            if (selected.length > 0) {
+                selectedFandoms.innerHTML = "You selected: <ul>" + selected.map(item => `<li>${item}</li>`).join('') + "</ul>";
+            } else {
+                selectedFandoms.innerHTML = "You did not select any options.";
+            }
+            resultsDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
