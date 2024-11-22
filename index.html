@@ -3,31 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fandom Backlash Poll</title>
+    <title>Fandom Backlash Awareness</title>
     <style>
-        /* Import the Typeform font (Inter) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-        /* Apply the font to your header */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
         }
-
-        h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem; /* Adjust size as needed */
-            font-weight: 700;  /* Matches bold Typeform headers */
-            color: #333333;    /* Matches typical Typeform header color */
-            text-align: center; /* Optional: Align center */
-            margin: 20px 0;    /* Add some spacing */
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .backlash-options label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .explanation {
+            margin: 20px 0;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            background-color: #eef6fc;
         }
     </style>
 </head>
 <body>
-    <h1>Fandom Backlash</h1>
+    <!-- Page 1: Selection -->
+    <div id="selectionPage">
+        <h1>Fandom Backlash Poll</h1>
+        <p>Choose all the fandom backlashes you recall:</p>
+        <form id="backlashForm">
+            <div class="backlash-options">
+                <label><input type="checkbox" name="backlash" value="Star Wars"> Star Wars: The Last Jedi - Film (2017)</label>
+                <label><input type="checkbox" name="backlash" value="Game of Thrones"> Game of Thrones Season 8 Finale - TV (2019)</label>
+                <label><input type="checkbox" name="backlash" value="Sonic"> Sonic the Hedgehog - Film (2020)</label>
+                <label><input type="checkbox" name="backlash" value="Last of Us"> The Last of Us Part II - Video Game (2020)</label>
+                <label><input type="checkbox" name="backlash" value="Ghostbusters"> Ghostbusters - Film (2016)</label>
+                <label><input type="checkbox" name="backlash" value="She-Hulk"> She-Hulk: Attorney at Law - TV (2022)</label>
+                <label><input type="checkbox" name="backlash" value="Witcher"> The Witcher Season 2 - TV (2021)</label>
+                <label><input type="checkbox" name="backlash" value="Cyberpunk"> Cyberpunk 2077 - Video Game (2020)</label>
+            </div>
+            <button type="button" onclick="showExplanations()">Next</button>
+        </form>
+    </div>
 
-    <!-- Typeform Embed -->
-    <div data-tf-live="01JD92M84KR7V3FDDDP0TQJ6YN"></div>
-    <script src="//embed.typeform.com/next/embed.js"></script>
+    <!-- Page 2: Explanations -->
+    <div id="explanationPage" style="display: none;">
+        <h2>Fandom Backlash Explanations</h2>
+        <div id="explanations"></div>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        // Explanations for each backlash
+        const explanations = {
+            "Star Wars": "Faced intense criticism from a segment of fans displeased with its narrative choices, leading to online harassment of cast members like Kelly Marie Tran.",
+            "Game of Thrones": "The series' concluding episodes were met with widespread dissatisfaction, prompting petitions, including one with over a million signatures for a remake.",
+            "Sonic": "The initial character design in the film's trailer in 2019 sparked such a strong negative reaction that the studio delayed the release to redesign Sonic.",
+            "Last of Us": "The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.",
+            "Ghostbusters": "The reboot faced significant backlash from fans who criticized the film for its all-female cast, resulting in sexist and racist online harassment.",
+            "She-Hulk": "Faced backlash primarily from fans who criticized the show for its tone, visual effects, and perceived focus on female-driven storylines.",
+            "Witcher": "Faced backlash from fans who were disappointed with the deviations from the source material, particularly Henry Cavill’s exit due to rumored creative differences.",
+            "Cyberpunk": "Faced backlash primarily from fans who were disappointed by its numerous bugs, performance issues, and perceived lack of depth."
+        };
+
+        // Show explanations based on selections
+        function showExplanations() {
+            const selectedOptions = document.querySelectorAll('input[name="backlash"]:checked');
+            const explanationDiv = document.getElementById('explanations');
+
+            explanationDiv.innerHTML = ""; // Clear previous content
+            selectedOptions.forEach(option => {
+                const explanation = document.createElement('div');
+                explanation.className = "explanation";
+                explanation.innerHTML = `<strong>${option.parentElement.textContent.trim()}</strong><br>${explanations[option.value]}`;
+                explanationDiv.appendChild(explanation);
+            });
+
+            // Switch to explanation page
+            document.getElementById('selectionPage').style.display = 'none';
+            document.getElementById('explanationPage').style.display = 'block';
+        }
+
+        // Go back to the selection page
+        function goBack() {
+            document.getElementById('explanationPage').style.display = 'none';
+            document.getElementById('selectionPage').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
