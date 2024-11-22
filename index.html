@@ -25,15 +25,20 @@
             padding: 20px;
         }
         .poll-option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .poll-option input {
             margin-right: 10px;
         }
         .poll-option label {
             font-size: 16px;
+            font-weight: bold;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+            padding-left: 25px;
         }
         button {
             display: block;
@@ -69,34 +74,42 @@
             <div class="poll-option">
                 <input type="checkbox" id="starWars" name="fandoms" value="Star Wars: The Last Jedi (2017)">
                 <label for="starWars">Star Wars: The Last Jedi - Film (2017)</label>
+                <div class="description">The film faced intense criticism from a segment of fans displeased with its narrative choices, leading to online harassment of cast members like Kelly Marie Tran. Tran was accused of representing "forced diversity".</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="gameOfThrones" name="fandoms" value="Game of Thrones Season 8 Finale (2019)">
                 <label for="gameOfThrones">Game of Thrones Season 8 Finale - TV (2019)</label>
+                <div class="description">The series' concluding episodes were met with widespread dissatisfaction, prompting petitions, including one with over a million signatures for a remake, and extensive online debates.</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="sonic" name="fandoms" value="Sonic the Hedgehog (2020)">
                 <label for="sonic">Sonic the Hedgehog - Film (2020)</label>
+                <div class="description">The initial character design in the film's trailer in 2019 sparked such a strong negative reaction that the studio delayed the release to redesign Sonic.</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="lastOfUs" name="fandoms" value="The Last of Us Part II (2020)">
                 <label for="lastOfUs">The Last of Us Part II - Video Game (2020)</label>
+                <div class="description">The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="ghostbusters" name="fandoms" value="Ghostbusters (2016)">
                 <label for="ghostbusters">Ghostbusters - Film (2016)</label>
+                <div class="description">The reboot faced significant backlash from fans who criticized the film for its all-female cast, resulting in sexist and racist online harassment, including death threats directed at the cast, particularly Leslie Jones.</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="sheHulk" name="fandoms" value="She-Hulk: Attorney at Law (2022)">
                 <label for="sheHulk">She-Hulk: Attorney at Law - TV (2022)</label>
+                <div class="description">Faced backlash primarily from fans who criticized the show for its tone, visual effects, and perceived focus on female-driven storylines, leading to debates about its place in the MCU.</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="witcher" name="fandoms" value="The Witcher Season 2 (2021)">
                 <label for="witcher">The Witcher Season 2 - TV (2021)</label>
+                <div class="description">Faced backlash from fans who were disappointed with the deviations from the source material, particularly the portrayal of beloved characters and key plot points, as well as Henry Cavill’s exit, due to rumored creative differences.</div>
             </div>
             <div class="poll-option">
                 <input type="checkbox" id="cyberpunk" name="fandoms" value="Cyberpunk 2077 (2020)">
                 <label for="cyberpunk">Cyberpunk 2077 - Video Game (2020)</label>
+                <div class="description">Faced backlash primarily from fans who were disappointed by its numerous bugs, performance issues on last-gen consoles, and perceived lack of depth, leading to heated debates and harassment of developers and reviewers.</div>
             </div>
             <button type="button" onclick="submitPoll()">Submit</button>
         </form>
