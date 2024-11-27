@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fandom Backlash Awareness</title>
+    <title>Culture Clash: The Controversies of Media Fandoms</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,6 +14,9 @@
         }
         h1, h2 {
             color: #2c3e50;
+        }
+        .category {
+            margin-top: 20px;
         }
         .backlash-options label {
             display: block;
@@ -36,13 +39,13 @@
             padding: 10px;
             border-left: 4px solid #3498db;
             background-color: #eef6fc;
-            clear: both; /* Ensure each explanation starts on a new line */
+            clear: both;
         }
         .explanation img {
             width: 100%;
             max-width: 400px;
             margin-top: 10px;
-            margin-bottom: 10px; /* Add space between image and following text */
+            margin-bottom: 10px;
             border-radius: 5px;
         }
     </style>
@@ -50,19 +53,36 @@
 <body>
     <!-- Page 1: Selection -->
     <div id="selectionPage">
-        <h1>Fandom Backlash</h1>
-        <p>Make a selection to learn more:</p>
+        <h1>Culture Clash: The Controversies of Media Fandoms</h1>
+        <p>Choose a category and select specific controversies to learn more:</p>
         <form id="backlashForm">
-            <div class="backlash-options">
-                <label><input type="checkbox" name="backlash" value="Star Wars"> Star Wars: The Last Jedi - Film (2017)</label>
-                <label><input type="checkbox" name="backlash" value="Game of Thrones"> Game of Thrones Season 8 Finale - TV (2019)</label>
-                <label><input type="checkbox" name="backlash" value="Sonic"> Sonic the Hedgehog - Film (2020)</label>
-                <label><input type="checkbox" name="backlash" value="Last of Us"> The Last of Us Part II - Video Game (2020)</label>
-                <label><input type="checkbox" name="backlash" value="Ghostbusters"> Ghostbusters - Film (2016)</label>
-                <label><input type="checkbox" name="backlash" value="She-Hulk"> She-Hulk: Attorney at Law - TV (2022)</label>
-                <label><input type="checkbox" name="backlash" value="Witcher"> The Witcher Season 2 - TV (2021)</label>
-                <label><input type="checkbox" name="backlash" value="Cyberpunk"> Cyberpunk 2077 - Video Game (2020)</label>
+            <!-- Music Category -->
+            <div class="category">
+                <h2>Music</h2>
+                <label><input type="checkbox" name="backlash" value="DojaCat"> Doja Cat vs. "Kittenz" - Music (2023)</label>
+                <label><input type="checkbox" name="backlash" value="TaylorSwift"> Taylor Swift–Ticketmaster Controversy - Music (2022)</label>
             </div>
+
+            <!-- Film Category -->
+            <div class="category">
+                <h2>Film</h2>
+                <label><input type="checkbox" name="backlash" value="LittleMermaid"> The Little Mermaid Casting Backlash - Film (2023)</label>
+            </div>
+
+            <!-- Television Category -->
+            <div class="category">
+                <h2>Television</h2>
+                <label><input type="checkbox" name="backlash" value="LastOfUsEpisode3"> The Last of Us Episode 3 Backlash - TV (2023)</label>
+                <label><input type="checkbox" name="backlash" value="GoTFinale"> Game of Thrones Finale Backlash - TV (2019)</label>
+            </div>
+
+            <!-- Video Game Category -->
+            <div class="category">
+                <h2>Video Games</h2>
+                <label><input type="checkbox" name="backlash" value="Hogwarts"> Hogwarts Legacy Boycott - Video Game (2023)</label>
+                <label><input type="checkbox" name="backlash" value="LastOfUsPart2"> The Last of Us Part II Backlash - Video Game (2020)</label>
+            </div>
+
             <button type="button" onclick="showExplanations()">Next</button>
         </form>
     </div>
@@ -77,60 +97,46 @@
     <script>
         // Explanations for each backlash
         const explanations = {
-            "Star Wars": `
+            "DojaCat": `
                 <div class="explanation">
-                    <strong>Star Wars: The Last Jedi - Film (2017)</strong>
-                    <p>Faced intense criticism from a segment of fans displeased with its narrative choices, leading to online harassment of cast members like Kelly Marie Tran.</p>
-                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/starwars.jpeg?raw=true" alt="Star Wars: The Last Jedi">
+                    <strong>Doja Cat vs. "Kittenz" - Music (2023)</strong>
+                    <p>Doja Cat rejected her fans’ chosen name, calling out parasocial attachments, and sparked a heated online debate, losing over 250,000 followers in the process.</p>
                 </div>
             `,
-            "Game of Thrones": `
+            "TaylorSwift": `
                 <div class="explanation">
-                    <strong>Game of Thrones Season 8 Finale - TV (2019)</strong>
-                    <p>The series' concluding episodes were met with widespread dissatisfaction, prompting petitions, including one with over a million signatures for a remake.</p>
-                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/Larson-GoTFinale.webp" alt="Game of Thrones Season 8 Finale">
+                    <strong>Taylor Swift–Ticketmaster Controversy - Music (2022)</strong>
+                    <p>A system meltdown during Taylor Swift's "Eras Tour" pre-sale exposed the flaws in Ticketmaster’s monopoly, fueling calls for ticketing reform.</p>
                 </div>
             `,
-            "Sonic": `
+            "LittleMermaid": `
                 <div class="explanation">
-                    <strong>Sonic the Hedgehog - Film (2020)</strong>
-                    <p>The initial character design in the film's trailer in 2019 sparked such a strong negative reaction that the studio delayed the release to redesign Sonic.</p>
-                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/sonic.jpeg?raw=true" alt="Sonic the Hedgehog">
+                    <strong>The Little Mermaid Casting Backlash - Film (2023)</strong>
+                    <p>Halle Bailey’s casting as Ariel was met with polarized reactions, with some celebrating diversity while others bombarded it with negative reviews.</p>
                 </div>
             `,
-            "Last of Us": `
+            "LastOfUsEpisode3": `
                 <div class="explanation">
-                    <strong>The Last of Us Part II - Video Game (2020)</strong>
+                    <strong>The Last of Us Episode 3 Backlash - TV (2023)</strong>
+                    <p>A tender portrayal of a same-sex relationship earned acclaim but also review bombing, revealing shifting audience attitudes toward LGBTQ+ narratives.</p>
+                </div>
+            `,
+            "GoTFinale": `
+                <div class="explanation">
+                    <strong>Game of Thrones Finale Backlash - TV (2019)</strong>
+                    <p>The rushed and divisive ending left fans disappointed, spurring petitions for a rewrite and reshaping conversations about satisfying long-running series.</p>
+                </div>
+            `,
+            "Hogwarts": `
+                <div class="explanation">
+                    <strong>Hogwarts Legacy Boycott - Video Game (2023)</strong>
+                    <p>Fans grappled with J.K. Rowling's controversial views on transgender issues, but the game soared to $1 billion in revenue, questioning the boycott’s impact.</p>
+                </div>
+            `,
+            "LastOfUsPart2": `
+                <div class="explanation">
+                    <strong>The Last of Us Part II Backlash - Video Game (2020)</strong>
                     <p>The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.</p>
-                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/9uSwzPhp9Zkfc7tzCtCpqR-1200-80.jpg?raw=true" alt="The Last of Us Part II">
-                </div>
-            `,
-            "Ghostbusters": `
-                <div class="explanation">
-                    <strong>Ghostbusters - Film (2016)</strong>
-                    <p>The reboot faced significant backlash from fans who criticized the film for its all-female cast, resulting in sexist and racist online harassment.</p>
-                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/ghostbusters-23016.jpg?raw=true" alt="Ghostbusters">
-                </div>
-            `,
-            "She-Hulk": `
-                <div class="explanation">
-                    <strong>She-Hulk: Attorney at Law - TV (2022)</strong>
-                    <p>Faced backlash primarily from fans who criticized the show for its tone, visual effects, and perceived focus on female-driven storylines.</p>
-                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/she-hulk-button-02-1658627893728.jpg?raw=true" alt="She-Hulk">
-                </div>
-            `,
-            "Witcher": `
-                <div class="explanation">
-                    <strong>The Witcher Season 2 - TV (2021)</strong>
-                    <p>Faced backlash from fans who were disappointed with the deviations from the source material, particularly Henry Cavill’s exit due to rumored creative differences.</p>
-                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/the-witcher-season-2-henry-cavill-1608215077.webp" alt="The Witcher Season 2">
-                </div>
-            `,
-            "Cyberpunk": `
-                <div class="explanation">
-                    <strong>Cyberpunk 2077 - Video Game (2020)</strong>
-                    <p>Faced backlash primarily from fans who were disappointed by its numerous bugs, performance issues, and perceived lack of depth.</p>
-                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/Cyberpunk-2077-Featured-1024x597.png?raw=true" alt="Cyberpunk 2077">
                 </div>
             `
         };
