@@ -9,44 +9,64 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             color: #333;
+            margin: 0;
         }
         h1, h2 {
             color: #2c3e50;
-        }
-        .category {
-            margin-top: 20px;
+            text-align: center;
         }
         .backlash-options label {
-            display: block;
-            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
             cursor: pointer;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s;
+        }
+        .backlash-options label:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .backlash-options img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 15px;
         }
         button {
+            display: block;
             background-color: #3498db;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
+            margin: 20px auto;
+            transition: background-color 0.2s;
         }
         button:hover {
             background-color: #2980b9;
         }
         .explanation {
             margin: 20px 0;
-            padding: 10px;
-            border-left: 4px solid #3498db;
-            background-color: #eef6fc;
-            clear: both;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            display: flex;
+            align-items: flex-start;
         }
         .explanation img {
-            width: 100%;
-            max-width: 400px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
         }
     </style>
 </head>
@@ -54,35 +74,50 @@
     <!-- Page 1: Selection -->
     <div id="selectionPage">
         <h1>Culture Clash: The Controversies of Media Fandoms</h1>
-        <p>Choose a category and select specific controversies to learn more:</p>
+        <p>Select a controversy to learn more:</p>
         <form id="backlashForm">
-            <!-- Music Category -->
-            <div class="category">
-                <h2>Music</h2>
-                <label><input type="checkbox" name="backlash" value="DojaCat"> Doja Cat vs. "Kittenz" - Music (2023)</label>
-                <label><input type="checkbox" name="backlash" value="TaylorSwift"> Taylor Swift–Ticketmaster Controversy - Music (2022)</label>
+            <div class="backlash-options">
+                <label>
+                    <input type="checkbox" name="backlash" value="DojaCat">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/1349906.jpg?raw=true" alt="Doja Cat">
+                    Doja Cat vs. "Kittenz" - Music (2023)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="TaylorSwift">
+                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/taylor-swift-ticketmaster-split.webp" alt="Taylor Swift">
+                    Taylor Swift–Ticketmaster Controversy - Music (2022)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="Hogwarts">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/hogwarts-legacy-boycott-over-jk-rowling-fails.jpg?raw=true" alt="Hogwarts Legacy">
+                    Hogwarts Legacy Boycott - Video Game (2023)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="LittleMermaid">
+                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/halle-bailey-with-original-ariel-from-the-little-mermaid.avif" alt="The Little Mermaid">
+                    The Little Mermaid Casting Backlash - Film (2023)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="LastOfUsEpisode3">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/k2srds89v7oa1.jpg?raw=true" alt="The Last of Us Episode 3">
+                    The Last of Us Episode 3 Backlash - TV (2023)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="GoTFinale">
+                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/Larson-GoTFinale.webp" alt="Game of Thrones">
+                    Game of Thrones Finale Backlash - TV (2019)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="LastOfUsPart2">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/9uSwzPhp9Zkfc7tzCtCpqR-1200-80.jpg?raw=true" alt="The Last of Us Part II">
+                    The Last of Us Part II Backlash - Video Game (2020)
+                </label>
+                <label>
+                    <input type="checkbox" name="backlash" value="TheIdol">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/Screenshot%202024-11-26%20at%207.20.01%20PM.png?raw=true" alt="The Idol">
+                    The Idol Backlash - TV (2023)
+                </label>
             </div>
-
-            <!-- Film Category -->
-            <div class="category">
-                <h2>Film</h2>
-                <label><input type="checkbox" name="backlash" value="LittleMermaid"> The Little Mermaid Casting Backlash - Film (2023)</label>
-            </div>
-
-            <!-- Television Category -->
-            <div class="category">
-                <h2>Television</h2>
-                <label><input type="checkbox" name="backlash" value="LastOfUsEpisode3"> The Last of Us Episode 3 Backlash - TV (2023)</label>
-                <label><input type="checkbox" name="backlash" value="GoTFinale"> Game of Thrones Finale Backlash - TV (2019)</label>
-            </div>
-
-            <!-- Video Game Category -->
-            <div class="category">
-                <h2>Video Games</h2>
-                <label><input type="checkbox" name="backlash" value="Hogwarts"> Hogwarts Legacy Boycott - Video Game (2023)</label>
-                <label><input type="checkbox" name="backlash" value="LastOfUsPart2"> The Last of Us Part II Backlash - Video Game (2020)</label>
-            </div>
-
             <button type="button" onclick="showExplanations()">Next</button>
         </form>
     </div>
@@ -99,68 +134,43 @@
         const explanations = {
             "DojaCat": `
                 <div class="explanation">
-                    <strong>Doja Cat vs. "Kittenz" - Music (2023)</strong>
-                    <p>Doja Cat rejected her fans’ chosen name, calling out parasocial attachments, and sparked a heated online debate, losing over 250,000 followers in the process.</p>
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/1349906.jpg?raw=true" alt="Doja Cat">
+                    <div>
+                        <strong>Doja Cat vs. "Kittenz" - Music (2023)</strong>
+                        <p>Doja Cat rejected her fans’ chosen name, calling out parasocial attachments, and sparked a heated online debate, losing over 250,000 followers in the process.</p>
+                    </div>
                 </div>
             `,
             "TaylorSwift": `
                 <div class="explanation">
-                    <strong>Taylor Swift–Ticketmaster Controversy - Music (2022)</strong>
-                    <p>A system meltdown during Taylor Swift's "Eras Tour" pre-sale exposed the flaws in Ticketmaster’s monopoly, fueling calls for ticketing reform.</p>
-                </div>
-            `,
-            "LittleMermaid": `
-                <div class="explanation">
-                    <strong>The Little Mermaid Casting Backlash - Film (2023)</strong>
-                    <p>Halle Bailey’s casting as Ariel was met with polarized reactions, with some celebrating diversity while others bombarded it with negative reviews.</p>
-                </div>
-            `,
-            "LastOfUsEpisode3": `
-                <div class="explanation">
-                    <strong>The Last of Us Episode 3 Backlash - TV (2023)</strong>
-                    <p>A tender portrayal of a same-sex relationship earned acclaim but also review bombing, revealing shifting audience attitudes toward LGBTQ+ narratives.</p>
-                </div>
-            `,
-            "GoTFinale": `
-                <div class="explanation">
-                    <strong>Game of Thrones Finale Backlash - TV (2019)</strong>
-                    <p>The rushed and divisive ending left fans disappointed, spurring petitions for a rewrite and reshaping conversations about satisfying long-running series.</p>
+                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/taylor-swift-ticketmaster-split.webp" alt="Taylor Swift">
+                    <div>
+                        <strong>Taylor Swift–Ticketmaster Controversy - Music (2022)</strong>
+                        <p>A system meltdown during Taylor Swift's "Eras Tour" pre-sale exposed the flaws in Ticketmaster’s monopoly, fueling calls for ticketing reform.</p>
+                    </div>
                 </div>
             `,
             "Hogwarts": `
                 <div class="explanation">
-                    <strong>Hogwarts Legacy Boycott - Video Game (2023)</strong>
-                    <p>Fans grappled with J.K. Rowling's controversial views on transgender issues, but the game soared to $1 billion in revenue, questioning the boycott’s impact.</p>
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/hogwarts-legacy-boycott-over-jk-rowling-fails.jpg?raw=true" alt="Hogwarts Legacy">
+                    <div>
+                        <strong>Hogwarts Legacy Boycott - Video Game (2023)</strong>
+                        <p>Fans grappled with J.K. Rowling's controversial views on transgender issues, but the game soared to $1 billion in revenue, questioning the boycott’s impact.</p>
+                    </div>
                 </div>
             `,
-            "LastOfUsPart2": `
+            "LittleMermaid": `
                 <div class="explanation">
-                    <strong>The Last of Us Part II Backlash - Video Game (2020)</strong>
-                    <p>The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.</p>
+                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/halle-bailey-with-original-ariel-from-the-little-mermaid.avif" alt="The Little Mermaid">
+                    <div>
+                        <strong>The Little Mermaid Casting Backlash - Film (2023)</strong>
+                        <p>Halle Bailey’s casting as Ariel was met with polarized reactions, with some celebrating diversity while others bombarded it with negative reviews.</p>
+                    </div>
                 </div>
-            `
-        };
-
-        // Show explanations based on selections
-        function showExplanations() {
-            const selectedOptions = document.querySelectorAll('input[name="backlash"]:checked');
-            const explanationDiv = document.getElementById('explanations');
-
-            explanationDiv.innerHTML = ""; // Clear previous content
-            selectedOptions.forEach(option => {
-                explanationDiv.innerHTML += explanations[option.value];
-            });
-
-            // Switch to explanation page
-            document.getElementById('selectionPage').style.display = 'none';
-            document.getElementById('explanationPage').style.display = 'block';
-        }
-
-        // Go back to the selection page
-        function goBack() {
-            document.getElementById('explanationPage').style.display = 'none';
-            document.getElementById('selectionPage').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+            `,
+            "LastOfUsEpisode3": `
+                <div class="explanation">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/k2srds89v7oa1.jpg?raw=true" alt="The Last of Us Episode 3">
+                    <div>
+                        <strong>The Last of Us Episode 3 Backlash - TV (2023)</strong>
+                        <p>A tender portrayal of a same-sex relationship earned acclaim but also review bombing, revealing shifting audience attitudes toward LGBTQ+ narratives.</p>
