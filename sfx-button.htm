@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play SFX</title>
     <style>
-        /* Styling for the button */
+        /* Styling for the circular button */
         #sfx-button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
+            width: 100px; /* Diameter of the circle */
+            height: 100px;
             background-color: #ff4500; /* Bright orange */
             border: none;
-            border-radius: 8px;
+            border-radius: 50%; /* Makes the button circular */
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.1s, box-shadow 0.1s;
@@ -34,9 +31,10 @@
     </style>
 </head>
 <body style="text-align: center; padding: 20px; font-family: Arial, sans-serif;">
-    <h1>Click the Button to Play SFX</h1>
+    <h1 style="font-size: 24px; margin-bottom: 20px;">Click the Button to Play SFX</h1>
     
-    <button id="sfx-button" onclick="playSFX()">Play Sonic Drowning SFX</button>
+    <!-- Circular button -->
+    <button id="sfx-button" onclick="playSFX()" title="Play SFX"></button>
     
     <!-- Audio tag for the SFX -->
     <audio id="sfx" src="https://github.com/vanessabrokenrecord/fandom-poll/raw/refs/heads/main/sonic-1-music-drownings.mp3"></audio>
