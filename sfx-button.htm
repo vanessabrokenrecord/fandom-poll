@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play SFX</title>
+    <style>
+        /* Styling for the button */
+        #sfx-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff4500; /* Bright orange */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        /* Hover effect */
+        #sfx-button:hover {
+            background-color: #e03e00; /* Darker orange */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Active (click) effect */
+        #sfx-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body style="text-align: center; padding: 20px; font-family: Arial, sans-serif;">
+    <h1>Click the Button to Play SFX</h1>
+    
+    <button id="sfx-button" onclick="playSFX()">Play Sonic Drowning SFX</button>
+    
+    <!-- Audio tag for the SFX -->
+    <audio id="sfx" src="https://github.com/vanessabrokenrecord/fandom-poll/raw/refs/heads/main/sonic-1-music-drownings.mp3"></audio>
+
+    <script>
+        function playSFX() {
+            const audio = document.getElementById('sfx');
+            audio.currentTime = 0; // Restart sound effect from the beginning
+            audio.play(); // Play the sound
+        }
+    </script>
+</body>
+</html>
