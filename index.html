@@ -174,3 +174,58 @@
                     <div>
                         <strong>The Last of Us Episode 3 Backlash - TV (2023)</strong>
                         <p>A tender portrayal of a same-sex relationship earned acclaim but also review bombing, revealing shifting audience attitudes toward LGBTQ+ narratives.</p>
+                    </div>
+                </div>
+            `,
+            "GoTFinale": `
+                <div class="explanation">
+                    <img src="https://raw.githubusercontent.com/vanessabrokenrecord/fandom-poll/refs/heads/main/Larson-GoTFinale.webp" alt="Game of Thrones">
+                    <div>
+                        <strong>Game of Thrones Finale Backlash - TV (2019)</strong>
+                        <p>The rushed and divisive ending left fans disappointed, spurring petitions for a rewrite and reshaping conversations about satisfying long-running series.</p>
+                    </div>
+                </div>
+            `,
+            "LastOfUsPart2": `
+                <div class="explanation">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/9uSwzPhp9Zkfc7tzCtCpqR-1200-80.jpg?raw=true" alt="The Last of Us Part II">
+                    <div>
+                        <strong>The Last of Us Part II Backlash - Video Game (2020)</strong>
+                        <p>The game's storyline and character developments led to a polarized fanbase, resulting in review bombing and online harassment of developers.</p>
+                    </div>
+                </div>
+            `,
+            "TheIdol": `
+                <div class="explanation">
+                    <img src="https://github.com/vanessabrokenrecord/fandom-poll/blob/main/Screenshot%202024-11-26%20at%207.20.01%20PM.png?raw=true" alt="The Idol">
+                    <div>
+                        <strong>The Idol Backlash - TV (2023)</strong>
+                        <p>The Weeknd's HBO series was criticized for its graphic content and alleged toxic work environment, leading to significant fan and media backlash.</p>
+                    </div>
+                </div>
+            `
+        };
+
+        // Show explanations based on selections
+        function showExplanations() {
+            const selectedOptions = document.querySelectorAll('input[name="backlash"]:checked');
+            const explanationDiv = document.getElementById('explanations');
+
+            explanationDiv.innerHTML = ""; // Clear previous content
+            selectedOptions.forEach(option => {
+                explanationDiv.innerHTML += explanations[option.value];
+            });
+
+            // Switch to explanation page
+            document.getElementById('selectionPage').style.display = 'none';
+            document.getElementById('explanationPage').style.display = 'block';
+        }
+
+        // Go back to the selection page
+        function goBack() {
+            document.getElementById('explanationPage').style.display = 'none';
+            document.getElementById('selectionPage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
